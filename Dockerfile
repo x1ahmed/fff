@@ -25,12 +25,6 @@ COPY config.json /etc/xray/config.json
 RUN cat > /start.sh << 'EOF'
 #!/bin/sh
 
-# Set default values
-PORT=${PORT:-8080}
-VLESS_UUID=${VLESS_UUID:-"your-uuid-here"}
-REALITY_PRIVATE_KEY=${REALITY_PRIVATE_KEY:-"your-private-key-here"}
-REALITY_SHORT_ID=${REALITY_SHORT_ID:-"your-short-id-here"}
-
 echo "Starting Xray on port $PORT with PlayStation SNI..."
 echo "UUID: ${VLESS_UUID:0:8}..."
 echo "Short ID: $REALITY_SHORT_ID"
