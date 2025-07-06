@@ -22,6 +22,9 @@ RUN mkdir -p /etc/xray
 COPY config.json /etc/xray/config.json
 
 ADD start.sh /start.sh
+ADD .env .env
+
+ENV $(cat .env | xargs)
 
 RUN chmod +x /start.sh
 
