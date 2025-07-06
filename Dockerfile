@@ -26,7 +26,7 @@ ADD start.sh /start.sh
 RUN chmod +x /start.sh
 
 # Expose port (Railway will override this)
-EXPOSE ${PORT}
+EXPOSE $PORT
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 \
