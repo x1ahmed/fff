@@ -21,6 +21,8 @@ RUN mkdir -p /etc/xray
 # Copy configuration file
 COPY config.json /etc/xray/config.json
 
+ADD start.sh /start.sh
+
 RUN chmod +x /start.sh
 
 # Expose port (Railway will override this)
