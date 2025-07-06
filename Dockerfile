@@ -22,7 +22,7 @@ RUN mkdir -p /etc/xray
 COPY config.json /etc/xray/config.json
 
 # Expose port (Railway will override this)
-EXPOSE $PORT
+EXPOSE ${PORT}
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 \
