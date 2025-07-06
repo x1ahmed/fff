@@ -18,13 +18,20 @@ RUN curl -Lo xray.zip https://github.com/XTLS/Xray-core/releases/latest/download
 # Create config directory
 RUN mkdir -p /etc/xray
 
+ARG PORT=17306
+ARG VLESS_UUID=8442ff27-8e79-4f27-b4d2-c3e6447789ea
+ARG REALITY_PRIVATE_KEY=8GXPCvZ4ty3uEKxexznrZvCSo3NqYwzKY5dzbaQGWVM
+ARG REALITY_SHORT_ID=8236
+
+ENV PORT=$PORT
+ENV VLESS_UUID=$VLESS_UUID
+ENV REALITY_PRIVATE_KEY=$REALITY_PRIVATE_KEY
+ENV REALITY_SHORT_ID=$REALITY_SHORT_ID
+
 # Copy configuration file
 COPY config.json /etc/xray/config.json
 
 ADD start.sh /start.sh
-ADD .env .env
-
-ENV $(cat .env | xargs)
 
 RUN chmod +x /start.sh
 
